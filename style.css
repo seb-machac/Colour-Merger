@@ -1,0 +1,26 @@
+.square {
+      width: 100px;
+      height: 100px;
+      border: 0px;
+      display: inline-block;
+      background-color: #1b81bd;
+    }
+
+.text {
+  vertical-align: 225%;
+}
+
+.colour_input {
+  height: 110px;
+  width: 110px;
+  border: 100px;
+  border-color: aquamarine;
+}
+
+.body {
+  justify-items: 50%;
+  vertical-align: 50%;
+  width: 50%;
+  height: 50%;
+  background: #4CAF50;
+}

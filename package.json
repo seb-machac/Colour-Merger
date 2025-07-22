@@ -1,6 +1,6 @@
 {
   "name": "colour-adder",
-  "productName": "Colour Adder",
+  "productName": "Colour Merger",
   "version": "1.0.0",
   "description": "Simple Colour Merger App",
   "homepage": "https://github.com/seb-machac/Colour-Merger#readme",
@@ -21,7 +21,7 @@
   },
   "build": {
     "appId": "com.Sebma.colouradder",
-    "productName": "Colour Adder",
+    "productName": "Colour Merger",
     "win": {
       "target": "nsis"
     },

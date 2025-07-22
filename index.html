@@ -6,12 +6,34 @@
     <title>Colour Adder</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="body">
-        <input type="color" oninput="change_colour()" name="A" id="Colour_A" class="colour_input">
-        <span class="text"> + </span>
-        <input type="color" oninput="change_colour()" name="B" id="Colour_B" class="colour_input">
-        <span class="text"> = </span>
-        <div class="square"></div>
-    <script src="main.js"></script>
+<body>
+  <div class="parent">
+
+    <div class="Colour_Div">
+        <input type="color" id="Colour_A_Input" oninput="change_colour()" class="real_input" />
+        <div class="colour_picker" id="Colour_A_Picker" onclick="openPicker('A')"></div>
+        <span class="label" id="Colour_A_Label">#000000</span>
+    </div>
+
+    <div class="Colour_Div symbol">
+      <span class="text">+</span>
+    </div>
+
+    <div class="Colour_Div">
+      <input type="color" id="Colour_B_Input" oninput="change_colour()" class="real_input" />
+      <div class="colour_picker" id="Colour_B_Picker" onclick="openPicker('B')"></div>
+      <span class="label" id="Colour_B_Label">#000000</span>
+    </div>
+
+    <div class="Colour_Div symbol">
+      <span class="text">=</span>
+    </div>
+
+    <div class="Colour_Div">
+      <div class="colour_picker" id="square"></div>
+      <span class="label" id="Output_Colour_Label">#000000</span>
+    </div>
+  </div>
+    <script src="script.js"></script>
 </body>
 </html>

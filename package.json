@@ -1,0 +1,36 @@
+{
+  "name": "colour-adder",
+  "productName": "Colour Adder",
+  "version": "1.0.0",
+  "description": "Simple Colour Merger App",
+  "homepage": "https://github.com/seb-machac/Colour-Merger#readme",
+  "bugs": {
+    "url": "https://github.com/seb-machac/Colour-Merger/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seb-machac/Colour-Merger.git"
+  },
+  "license": "ISC",
+  "author": "Sebma",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "com.Sebma.colouradder",
+    "productName": "Colour Adder",
+    "win": {
+      "target": "nsis"
+    },
+    "files": [
+      "**/*"
+    ]
+  },
+  "devDependencies": {
+    "electron": "^27.1.1",
+    "electron-builder": "^24.6.3"
+  }
+}

@@ -1,9 +1,12 @@
 const { app, BrowserWindow } = require('electron')
+app.disableHardwareAcceleration();
+
+
 
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 500,
-    height: 200,
+    height: 300,
     autoHideMenuBar: true,
   })
 

@@ -1,44 +1,47 @@
 
-
 function change_colour() {
-    let A_Colour_Input = document.getElementById("Colour_A_Input").value.slice(1);
-    let B_Colour_Input = document.getElementById("Colour_B_Input").value.slice(1);
+    let A_Hex_Colour_Input = document.getElementById("Colour_A_Input").value.slice(1);
+    let B_Hex_Colour_Input = document.getElementById("Colour_B_Input").value.slice(1);
     
     let Colour_A_Picker = document.getElementById("Colour_A_Picker")
     let Colour_B_Picker = document.getElementById("Colour_B_Picker")
 
     let Output = document.getElementById('square').style;
 
-    let A_Label = document.getElementById("Colour_A_Label");
-    let B_Label = document.getElementById("Colour_B_Label");
-    let Output_Label = document.getElementById("Output_Colour_Label");
+    let Colour_A_Hex_Label = document.getElementById("Colour_A_Hex_Label");
+    let Colour_B_Hex_Label = document.getElementById("Colour_B_Hex_Label");
+    let Output_Colour_Hex_Label = document.getElementById("Output_Colour_Hex_Label");
 
-    let A_RGB = convert_to_rgb(A_Colour_Input);
-    let B_RGB = convert_to_rgb(B_Colour_Input);
+    let Colour_A_RGB_Label = document.getElementById("Colour_A_RGB_Label");
+    let Colour_B_RGB_Label = document.getElementById("Colour_B_RGB_Label");
+    let Output_Colour_RGB_Label = document.getElementById("Output_Colour_RGB_Label");
 
-    let Total_R = Math.round((A_RGB[0] + B_RGB[0]) / 2);
-    let Total_G = Math.round((A_RGB[1] + B_RGB[1]) / 2);
-    let Total_B = Math.round((A_RGB[2] + B_RGB[2]) / 2);
+    let A_RGB = convert_to_rgb(A_Hex_Colour_Input);
+    let B_RGB = convert_to_rgb(B_Hex_Colour_Input);
 
-    // console.log("R:"+Total_R);
-    // console.log("G:"+Total_G);
-    // console.log("B:"+Total_B);
 
-    let Output_Hex = convert_to_hex(Total_R,Total_G,Total_B);
+    let Output_RGB = [...Array(3)].map(x => 0);
+    for (let channel in Output_RGB) {
+        Output_RGB[channel] = Math.round((A_RGB[channel] + B_RGB[channel]) / 2);
+    }
 
-    // console.log(Output_Hex);
+    let Output_Hex = convert_to_hex(...Output_RGB);
+
+    Colour_A_Hex_Label.innerText = "#"+A_Hex_Colour_Input;
+    Colour_B_Hex_Label.innerText = "#"+B_Hex_Colour_Input;
+    Output_Colour_Hex_Label.innerText = Output_Hex;
+
+    Colour_A_RGB_Label.innerText = "RGB("+A_RGB+")"
+    Colour_B_RGB_Label.innerText = "RGB("+B_RGB+")"
+    Output_Colour_RGB_Label.innerText = "RGB("+Output_RGB+")";
+
+    Colour_A_Picker.style.backgroundColor = "#"+A_Hex_Colour_Input;
+    Colour_B_Picker.style.backgroundColor = "#"+B_Hex_Colour_Input;
     Output.backgroundColor = Output_Hex;
-
-    A_Label.innerText = "#"+A_Colour_Input;
-    B_Label.innerText = "#"+B_Colour_Input;
-    Output_Label.innerText = Output_Hex;
-    Colour_A_Picker.style.backgroundColor = "#"+A_Colour_Input;
-    Colour_B_Picker.style.backgroundColor = "#"+B_Colour_Input;
 
 };
 
 function openPicker(id) {
-  // Open the hidden real input
   const realInput = document.getElementById(`Colour_${id}_Input`);
   realInput.click();
 }
@@ -63,8 +66,6 @@ function convert_to_rgb(hex) {
     return [r, g, b];
 };
 
-
-
 function convert_to_hex(R, G, B) {
     const integer = ((R & 0xFF) << 16)
 		+ ((G & 0xFF) << 8)
@@ -73,7 +74,15 @@ function convert_to_hex(R, G, B) {
 	const string = integer.toString(16).toUpperCase();
 	let Final = "#"+'000000'.slice(string.length) + string;
 
-    // console.log(Final);
-
     return Final;
+};
+
+function Copy_Text(element) {
+    navigator.clipboard.writeText(document.getElementById(element.id).innerText)
+};
+
+function Reset() {
+    document.getElementById("Colour_A_Input").value = "#000000";
+    document.getElementById("Colour_B_Input").value = "#000000";
+    change_colour();
 };

@@ -16,14 +16,20 @@
   "type": "commonjs",
   "main": "main.js",
   "scripts": {
-    "start": "electron-forge start",
-    "build": "electron-builder"
+    "build": "electron-builder",
+    "start": "electron ."
   },
   "build": {
-    "appId": "com.Sebma.colouradder",
+    "appId": "com.sebma.colouradder",
     "productName": "Colour Merger",
     "win": {
+      "icon": "build/favicon.ico",
       "target": "nsis"
+    },
+    "nsis": {
+      "installerIcon": "build/favicon.ico",
+      "uninstallerIcon": "build/favicon.ico",
+      "installerHeaderIcon": "build/favicon.ico"
     },
     "files": [
       "**/*"

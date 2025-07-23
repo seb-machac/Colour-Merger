@@ -1,4 +1,10 @@
 
+@keyframes label {
+  from {background-color: #5e5c5c;
+        scale: 90%;}
+  to {background-color: #121212;}
+}
+
 .Colour_Div {
   display: flex;
   flex-direction: column;
@@ -13,6 +19,20 @@
   margin-top: 5px;
   font-family: monospace;
   color: white;
+  border-radius: 10%;
+}
+
+.label:hover {
+  transform: scale(1.05);
+}
+
+.label:not(:active) {
+  background-color: #121212;
+  animation-name: label;
+  animation-duration: 1000ms;
+}
+.label:active {
+  background-color: #5e5c5c;
 }
 
 .colour_picker {
@@ -65,14 +85,28 @@ body {
   padding: 10px;
 }
 
+.reset {
+  transition: transform 0.3s ease;
+  scale: 0.5;
+  margin-top: -30%;
+}
+
+.reset:hover {
+  transform: rotate(-30deg) scale(1.05);
+}
+
+.reset:active {
+  transform: scale(0.95) rotate(15deg);
+}
+
 .symbol {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin-top: 200%;
+  text-align: center;
   color: aliceblue;
 }
 
 .text {
   font-size: 2rem;
+  margin-top: 200%;
 }
